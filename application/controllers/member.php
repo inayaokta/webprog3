@@ -126,7 +126,7 @@ public function ubahProfil()
     $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required|trim', [
         'required' => 'Nama tidak Boleh Kosong'
         ]);
-
+        $data['judul'] = 'Profil Saya';
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/templates-user/header', $data);
             $this->load->view('member/ubah-anggota', $data);
