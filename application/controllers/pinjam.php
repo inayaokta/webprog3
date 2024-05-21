@@ -5,23 +5,20 @@ class Pinjam extends CI_Controller
     {
         parent::__construct();
         cek_login();
-        // cek_user();
+        //cek_user();
     }
 
     public function index()
-    {  
-        {  $data['judul'] = "Data Pinjam";
-            $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
-            $data['pinjam'] = $this->ModelPinjam->joinData();
-    
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('pinjam/data-pinjam', $data);
-            $this->load->view('templates/footer');
-    
-        }
-    
+    {   $data['judul'] = "Data Pinjam";
+        $data['user'] = $this->ModelUser->cekData(['email' => $this->session->userdata('email')])->row_array();
+        $data['pinjam'] = $this->ModelPinjam->joinData();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('pinjam/data-pinjam', $data);
+        $this->load->view('templates/footer');
+
     }
 
     public function daftarBooking()
@@ -36,6 +33,7 @@ class Pinjam extends CI_Controller
         $this->load->view('booking/daftar-booking', $data);
         $this->load->view('templates/footer');
     }
+
     public function bookingDetail()
     {
         $id_booking = $this->uri->segment(3);
@@ -50,6 +48,7 @@ class Pinjam extends CI_Controller
         $this->load->view('booking/booking-detail', $data);
         $this->load->view('templates/footer');
     }
+
     public function pinjamAct()
     {
         $id_booking = $this->uri->segment(3);
@@ -85,6 +84,7 @@ class Pinjam extends CI_Controller
         $this->session->set_flashdata('pesan', '<div class="alert alert-message alert-success" role="alert">Data Peminjaman Berhasil Disimpan</div>');
         redirect(base_url() . 'pinjam');
     }
+
     public function ubahStatus()
     {
         $id_buku = $this->uri->segment(3);
