@@ -8,7 +8,7 @@
                     <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form action="<?= base_url('autentifikasi'); ?>" method="post">
+            <form action="<?= base_url('member'); ?>" method="post">
                 <div class="modal-body">
                     <div class="form-group row">
                         <label for="email" class="col-sm-2 col-form-label">Email</label>
